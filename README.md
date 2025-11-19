@@ -29,12 +29,14 @@ A modern, minimalist, and high-performance personal portfolio website built with
 ### Installation
 
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/amfooladgar/portfolio.git
    cd portfolio
    ```
 
 2. **Install dependencies:**
+
    ```bash
    npm install
    # or
@@ -42,11 +44,13 @@ A modern, minimalist, and high-performance personal portfolio website built with
    ```
 
 3. **Start the development server:**
+
    ```bash
    npm run dev
    # or
    pnpm dev
    ```
+
    The site will be available at `http://localhost:4321`.
 
 ### Building for Production
@@ -61,7 +65,7 @@ pnpm build
 
 ## 📂 Project Structure
 
-```
+```text
 src/
 ├── components/    # Reusable UI components (Header, Footer, Sections)
 ├── layouts/       # Page layouts (Layout.astro)
