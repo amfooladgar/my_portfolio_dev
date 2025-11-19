@@ -1,0 +1,261 @@
+---
+// Header Component - Navigation Bar
+---
+
+<nav
+  class="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border"
+>
+  <div class="container mx-auto px-4 md:px-6 lg:px-8">
+    <div class="flex items-center justify-center h-14">
+      <!-- Desktop nav -->
+      <div class="hidden md:flex items-center gap-1">
+        <a
+          href="#home"
+          class="inline-flex items-center justify-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
+        >
+          Home
+        </a>
+        <a
+          href="#about"
+          class="inline-flex items-center justify-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
+        >
+          About
+        </a>
+        <a
+          href="#projects"
+          class="inline-flex items-center justify-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
+        >
+          Projects
+        </a>
+        <a
+          href="#skills"
+          class="inline-flex items-center justify-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
+        >
+          Skills
+        </a>
+        <a
+          href="#contact"
+          class="inline-flex items-center justify-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
+        >
+          Contact
+        </a>
+
+        <div class="ml-2 h-5 w-px bg-border"></div>
+
+        <button
+          type="button"
+          data-theme-toggle
+          class="inline-flex items-center justify-center size-9 ml-2 hover:text-foreground/80 transition-colors"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path>
+            <path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path>
+            <path d="m19.07 4.93-1.41 1.41"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile nav -->
+      <div class="md:hidden flex items-center gap-2 w-full justify-between">
+        <div
+          class="font-mono text-xs tracking-wide px-2 py-1 rounded-md border border-border/50"
+        >
+          Ali Fouladgar
+        </div>
+        <div class="flex items-center gap-2">
+          <button
+            type="button"
+            data-theme-toggle
+            class="inline-flex items-center justify-center size-9 hover:text-foreground/80 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+          </button>
+          <button
+            type="button"
+            data-mobile-menu-toggle
+            class="inline-flex items-center justify-center size-9 hover:text-foreground/80 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="4" x2="20" y1="12" y2="12"></line>
+              <line x1="4" x2="20" y1="6" y2="6"></line>
+              <line x1="4" x2="20" y1="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu content -->
+    <div
+      data-mobile-menu
+      class="md:hidden overflow-hidden transition-all duration-300 ease-out max-h-0 opacity-0"
+    >
+      <div class="pb-4 pt-2 border-t border-border">
+        <div class="flex flex-col gap-1">
+          <a
+            href="#home"
+            class="inline-flex items-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="inline-flex items-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
+            >About</a
+          >
+          <a
+            href="#projects"
+            class="inline-flex items-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
+            >Projects</a
+          >
+          <a
+            href="#skills"
+            class="inline-flex items-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
+            >Skills</a
+          >
+          <a
+            href="#contact"
+            class="inline-flex items-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script is:inline>
+  // Theme toggle functionality
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined") {
+      return localStorage.getItem("theme") ?? "dark";
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+
+  const updateTheme = (theme) => {
+    const isDark = theme === "dark";
+    document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+    // Update all theme toggle buttons' icons
+    document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+      const svg = button.querySelector("svg");
+      if (svg) {
+        // Toggle between sun and moon icons by swapping SVG content
+        if (isDark) {
+          // Show moon icon
+          svg.innerHTML = `
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+          `;
+        } else {
+          // Show sun icon
+          svg.innerHTML = `
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2"/>
+            <path d="M12 20v2"/>
+            <path d="m4.93 4.93 1.41 1.41"/>
+            <path d="m17.66 17.66 1.41 1.41"/>
+            <path d="M2 12h2"/>
+            <path d="M20 12h2"/>
+            <path d="m6.34 17.66-1.41 1.41"/>
+            <path d="m19.07 4.93-1.41 1.41"/>
+          `;
+        }
+      }
+    });
+
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem("theme", theme);
+    }
+  };
+
+  // Initialize theme on page load
+  updateTheme(getThemePreference());
+
+  // Add click handlers to all theme toggle buttons
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const currentTheme = getThemePreference();
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+        updateTheme(newTheme);
+      });
+    });
+
+    // Mobile menu toggle
+    const mobileMenuToggle = document.querySelector(
+      "[data-mobile-menu-toggle]",
+    );
+    const mobileMenu = document.querySelector("[data-mobile-menu]");
+
+    if (mobileMenuToggle && mobileMenu) {
+      mobileMenuToggle.addEventListener("click", () => {
+        const isOpen =
+          mobileMenu.style.maxHeight && mobileMenu.style.maxHeight !== "0px";
+
+        if (isOpen) {
+          mobileMenu.style.maxHeight = "0";
+          mobileMenu.style.opacity = "0";
+        } else {
+          mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
+          mobileMenu.style.opacity = "1";
+        }
+      });
+
+      // Close mobile menu when clicking links
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.style.maxHeight = "0";
+          mobileMenu.style.opacity = "0";
+        });
+      });
+    }
+  });
+
+  // Listen for system theme changes
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", (e) => {
+      if (!localStorage.getItem("theme")) {
+        updateTheme(e.matches ? "dark" : "light");
+      }
+    });
+</script>

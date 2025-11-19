@@ -1,0 +1,181 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import AboutMe from "@/components/AboutMe.astro";
+import Contact from "@/components/Contact.astro";
+import Experience from "@/components/Experience.astro";
+import Projects from "@/components/Projects.astro";
+import Hero from "@/components/Hero.astro";
+
+// Hero data
+const heroData = {
+  name: "Ali Fouladgar",
+  title: "AI, Cloud & Network Engineering",
+  description:
+    "PhD engineer building AI-driven platforms, scalable cloud systems, and real-time networking apps.",
+  status: ["Available for opportunities"],
+  stats: [
+    { label: "Experience", value: "10+ years", detail: "AI • Cloud • Telecom" },
+    { label: "Projects", value: "50+", detail: "Production-grade systems" },
+    { label: "Publications", value: "12", detail: "ML, Cloud, Networking" },
+  ],
+  socialLinks: [
+    {
+      platform: "github",
+      url: "https://github.com/amfooladgar",
+      username: "amfooladgar",
+    },
+    {
+      platform: "linkedin",
+      url: "https://www.linkedin.com/in/ali-fouladgar",
+      username: "ali-fouladgar",
+    },
+    {
+      platform: "email",
+      url: "mailto:amfooladgar@gmail.com",
+      username: "email",
+    },
+  ],
+};
+
+// Experience/Skills data for the skills section
+const experienceData = [
+  {
+    title: "AI & Machine Learning",
+    icon: "sparkles",
+    skills: [
+      "Machine Learning & MLOps",
+      "GenAI & RAG Systems",
+      "Predictive Modeling",
+      "Deep Learning",
+      "NLP & Computer Vision",
+    ],
+  },
+  {
+    title: "Cloud & Infrastructure",
+    icon: "cloud",
+    skills: [
+      "AWS (S3, Lambda, Kinesis, Glue, Step Functions)",
+      "GCP (Firebase, Firestore)",
+      "Kubernetes & Docker",
+      "Terraform / IaC",
+      "Cloud Architecture & Migration",
+    ],
+  },
+  {
+    title: "Data Engineering",
+    icon: "database",
+    skills: [
+      "Python & SQL",
+      "Spark / Dask",
+      "Data Pipelines & ETL",
+      "Stream Processing",
+      "Data Warehousing",
+    ],
+  },
+  {
+    title: "Network & Automation",
+    icon: "code",
+    skills: [
+      "Network Architecture",
+      "SDN & NFV",
+      "Service Orchestration",
+      "Automation Frameworks",
+      "Network Observability",
+    ],
+  },
+];
+
+// Projects data
+const projectsData = [
+  {
+    title: "Bridgit Social",
+    description:
+      "Real-time, in-person networking platform that bridges digital and physical presence. Mobile app helping professionals discover people around them based on context, goals, and timing.",
+    tags: ["iOS", "Swift", "Firebase", "Google Maps", "GenAI"],
+    links: [
+      {
+        label: "Code",
+        url: "https://github.com/amfooladgar/bridgitsocial-landingpage",
+        primary: false,
+      },
+      {
+        label: "Learn More",
+        url: "https://www.bridgitsocial.com/",
+        primary: true,
+      },
+    ],
+    icon: "calendar",
+  },
+  {
+    title: "AI-Driven Network Diagnostics",
+    description:
+      "Retrieval-augmented assistant on top of network logs, runbooks, and telemetry to accelerate incident triage. Reduced investigation time by surfacing likely root causes in natural language.",
+    tags: ["RAG", "LLMs", "MLOps", "Python", "Observability"],
+    links: [{ label: "Details", url: "#contact", primary: false }],
+    icon: "shield",
+  },
+  {
+    title: "LLM Research & Experimentation",
+    description:
+      "Hands-on exploration of Large Language Models including fine-tuning, prompt engineering, and evaluation techniques. Collection of Jupyter notebooks demonstrating practical LLM applications and best practices.",
+    tags: [
+      "LLMs",
+      "Python",
+      "Jupyter",
+      "NLP",
+      "AI Research",
+      "Prompt Engineering",
+    ],
+    links: [
+      {
+        label: "Code",
+        url: "https://github.com/amfooladgar/llm-useful",
+        primary: false,
+      },
+      {
+        label: "View",
+        url: "https://github.com/amfooladgar/llm-useful",
+        primary: true,
+      },
+    ],
+  },
+  {
+    title: "ONAP Network Orchestration",
+    description:
+      "Contributed to Open Network Automation Platform (ONAP) for NFV orchestration and service automation. Led implementation projects following MEF 3.0 standards, achieving MEF certification and industry recognition.",
+    tags: ["ONAP", "NFV", "SDN", "MEF", "Network Automation", "OpenStack"],
+    links: [
+      { label: "ONAP Wiki", url: "https://wiki.onap.org/", primary: false },
+      { label: "MEF", url: "https://www.mef.net/", primary: false },
+    ],
+  },
+];
+
+// About Me data
+const aboutMeData = {
+  paragraphs: [
+    "I hold a <strong>PhD in Electrical Engineering (NJIT)</strong> and have spent my career at the intersection of programmable networks, cloud, and AI. At Tata Communications, I led architecture and data-driven initiatives for global network services.",
+    "Today, I'm building <strong>Bridgit Social</strong> — a real-time networking app that helps professionals connect in person based on context and goals. I'm also exploring <strong>agentic AI and RAG systems</strong> for recommendations and coaching.",
+    "My technical background spans <strong>ML/MLOps, cloud architecture (AWS, GCP), network automation, and data engineering</strong>. I love connecting systems end-to-end, from low-level infrastructure to high-level AI products.",
+  ],
+};
+
+// Contact data
+const contactData = {
+  email: "amfooladgar@gmail.com",
+  github: "https://github.com/amfooladgar",
+  linkedin: "https://www.linkedin.com/in/ali-fouladgar",
+};
+---
+
+<Layout
+  title="Ali Fouladgar | AI, Cloud & Network Engineering"
+  description="PhD engineer specializing in AI, MLOps, cloud, and network automation. Building Bridgit Social and scalable AI-driven platforms."
+>
+  <Hero data={heroData} />
+  <AboutMe data={aboutMeData} />
+  <Projects data={projectsData} />
+  <Experience data={experienceData} />
+  <Contact data={contactData} />
+</Layout>

@@ -1,0 +1,89 @@
+---
+import "@fontsource-variable/inter";
+import "../styles/global.css";
+import "../styles/patterns.css";
+import "../styles/animations.css";
+
+import Header from "../components/Header.astro";
+import { ViewTransitions } from "astro:transitions";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { description, title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+
+  <body class="relative min-h-screen">
+    <!-- Full-page grid background -->
+    <div class="fixed inset-0 -z-10">
+      <div class="absolute inset-0 bg-background"></div>
+      <div class="absolute inset-0 grid-pattern opacity-[0.15]"></div>
+    </div>
+    <Header />
+    <slot />
+    <style is:global>
+      :root {
+        color-scheme: light dark;
+      }
+
+      html {
+        font-family:
+          "Inter Variable",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        overscroll-behavior: none;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+
+    <script>
+      // Scroll animations using Intersection Observer
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-on-scroll");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Observe all sections except hero
+      document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll("section:not(#home)");
+        sections.forEach((section) => observer.observe(section));
+      });
+    </script>
+  </body>
+</html>
