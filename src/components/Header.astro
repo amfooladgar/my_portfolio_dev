@@ -10,37 +10,37 @@
       <!-- Desktop nav -->
       <div class="hidden md:flex items-center gap-1">
         <a
-          href="#home"
+          href="/#home"
           class="inline-flex items-center justify-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
         >
           Home
         </a>
         <a
-          href="#about"
+          href="/#about"
           class="inline-flex items-center justify-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
         >
           About
         </a>
         <a
-          href="#projects"
+          href="/#projects"
           class="inline-flex items-center justify-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
         >
           Projects
         </a>
         <a
-          href="#skills"
+          href="/#skills"
           class="inline-flex items-center justify-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
         >
           Skills
         </a>
         <a
-          href="#publications"
+          href="/#publications"
           class="inline-flex items-center justify-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
         >
           Publications
         </a>
         <a
-          href="#contact"
+          href="/#contact"
           class="inline-flex items-center justify-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
         >
           Contact
@@ -136,32 +136,32 @@
       <div class="pb-4 pt-2 border-t border-border">
         <div class="flex flex-col gap-1">
           <a
-            href="#home"
+            href="/#home"
             class="inline-flex items-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
             >Home</a
           >
           <a
-            href="#about"
+            href="/#about"
             class="inline-flex items-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
             >About</a
           >
           <a
-            href="#projects"
+            href="/#projects"
             class="inline-flex items-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
             >Projects</a
           >
           <a
-            href="#skills"
+            href="/#skills"
             class="inline-flex items-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
             >Skills</a
           >
           <a
-            href="#publications"
+            href="/#publications"
             class="inline-flex items-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
             >Publications</a
           >
           <a
-            href="#contact"
+            href="/#contact"
             class="inline-flex items-center h-9 px-4 py-2 text-sm font-medium hover:text-foreground/80 transition-colors"
             >Contact</a
           >
@@ -171,7 +171,7 @@
   </div>
 </nav>
 
-<script is:inline>
+<script>
   // Theme toggle functionality
   const getThemePreference = () => {
     if (typeof localStorage !== "undefined") {
@@ -218,11 +218,11 @@
     }
   };
 
-  // Initialize theme on page load
-  updateTheme(getThemePreference());
+  const initializeTheme = () => {
+    // Update theme icons based on current theme
+    updateTheme(getThemePreference());
 
-  // Add click handlers to all theme toggle buttons
-  document.addEventListener("DOMContentLoaded", () => {
+    // Add click handlers to all theme toggle buttons
     document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
       button.addEventListener("click", () => {
         const currentTheme = getThemePreference();
@@ -259,7 +259,13 @@
         });
       });
     }
-  });
+  };
+
+  // Initialize on first page load
+  document.addEventListener("DOMContentLoaded", initializeTheme);
+
+  // Re-initialize after Astro page transitions
+  document.addEventListener("astro:page-load", initializeTheme);
 
   // Listen for system theme changes
   window
