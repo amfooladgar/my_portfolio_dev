@@ -4,6 +4,8 @@ import Layout from "@/layouts/Layout.astro";
 import AboutMe from "@/components/AboutMe.astro";
 import Contact from "@/components/Contact.astro";
 import Experience from "@/components/Experience.astro";
+import WorkExperience from "@/components/WorkExperience.astro";
+import Education from "@/components/Education.astro";
 import Projects from "@/components/Projects.astro";
 import Publications from "@/components/Publications.astro";
 import Hero from "@/components/Hero.astro";
@@ -11,9 +13,9 @@ import Hero from "@/components/Hero.astro";
 // Hero data
 const heroData = {
   name: "Ali Fouladgar",
-  title: "AI, Cloud & Network Engineering",
+  title: "Senior AI/ML Engineer | Cloud & Network Architect | AI & ML",
   description:
-    "PhD engineer building AI-driven platforms, scalable cloud systems, and real-time networking apps.",
+    "Senior AI/ML leader with 10+ years of experience delivering large-scale machine learning, automation, and distributed systems. PhD engineer building AI-driven platforms, scalable cloud systems, and real-time networking apps.",
   status: "Available for opportunities",
   stats: [
     { label: "Experience", value: "13+ years", detail: "AI • Cloud • Telecom" },
@@ -56,26 +58,40 @@ const heroData = {
 // Experience/Skills data for the skills section
 const experienceData = [
   {
-    title: "AI & Machine Learning",
+    title: "GenAI & LLM Systems",
     icon: "sparkles",
     skills: [
-      "MLOps",
-      "(Kubeflow, MLflow, SageMaker)",
-      "LLMs",
-      "Transformers (Hugging Face)",
-      "Prompt Engineering",
-      "Fine-Tuning",
       "RAG",
-      "Vector DBs (Pinecone, FAISS)",
-      "Deep Learning",
-      "PyTorch, TensorFlow",
+      "Prompt Engineering",
+      "LLM Fine-tuning",
+      "Transformers (Hugging Face)",
+      "Vector Databases (Pinecone, FAISS)",
+      "LangChain",
+      "LangGraph",
+      "Semantic Search",
+      "Real-Time Inference",
+    ],
+  },
+  {
+    title: "Machine Learning & MLOps",
+    icon: "code",
+    skills: [
+      "PyTorch",
+      "TensorFlow",
+      "Keras",
       "Scikit-learn",
       "Pandas",
+      "MLflow",
+      "Kubeflow",
+      "SageMaker",
+      "CI/CD for ML",
+      "Distributed ML Pipelines",
+      "Neural Networks",
       "NLP",
     ],
   },
   {
-    title: "Cloud & Infrastructure",
+    title: "Cloud & Distributed Systems",
     icon: "cloud",
     skills: [
       "AWS (Infra services, Lambda, S3, Kinesis, SageMaker)",
@@ -83,9 +99,12 @@ const experienceData = [
       "Kubernetes & Docker",
       "Terraform",
       "Ansible",
-      "CI/CD",
-      "Jenkins",
-      "GitHub Actions",
+      "OpenStack (RHOSP)",
+      "VMware (NSX, ESXi, vCenter)",
+      "RHEL",
+      "Helm",
+      "Distributed System Design",
+      "High Availability Architectures",
     ],
   },
   {
@@ -102,6 +121,9 @@ const experienceData = [
       "Pandas",
       "ETL Pipelines",
       "Data Warehousing",
+      "Python SDKs",
+      "Analytics Pipelines",
+      "Predictive Modeling",
     ],
   },
   {
@@ -121,6 +143,32 @@ const experienceData = [
       "SDN, NFV, ONAP, OpenStack",
       "Testing & QA Automation",
       "n8n & Zapier",
+      "Bare metal (PXE, MAAS)",
+      "BMC",
+    ],
+  },
+  {
+    title: "Networking",
+    icon: "sparkles",
+    skills: [
+      "VXLAN EVPN",
+      "Multi-Cloud Connect",
+      "MPLS",
+      "SD-WAN",
+      "L2/L3 Orchestration",
+      "CNI plugins (OVN-K, Calico)",
+      "Policy-Driven Networking",
+    ],
+  },
+  {
+    title: "Monitoring & Observability",
+    icon: "database",
+    skills: [
+      "ELK stack",
+      "Grafana",
+      "Prometheus",
+      "Consul",
+      "etcd troubleshooting",
     ],
   },
 ];
@@ -130,8 +178,17 @@ const projectsData = [
   {
     title: "Bridgit Social",
     description:
-      "Real-time, in-person networking platform that bridges digital and physical presence. Mobile app helping professionals discover people around them based on context, goals, and timing.",
-    tags: ["iOS", "Swift", "Firebase", "Google Maps", "GenAI"],
+      "Designed and deployed a real-time user-matching system using few-shot prompting and retrieval-augmented generation (RAG) to connect users by context, intent, and proximity. Reduced irrelevant matches and boosted engagement.",
+    tags: [
+      "iOS",
+      "Swift",
+      "Firebase",
+      "GCP APIs",
+      "OpenAI",
+      "Postgres",
+      "pgvector",
+      "LangChain",
+    ],
     links: [
       {
         label: "Code",
@@ -209,10 +266,82 @@ const projectsData = [
 const aboutMeData = {
   paragraphs: [
     "I hold a <strong>PhD in Electrical Engineering (NJIT)</strong> and have spent my career at the intersection of programmable networks, cloud, and AI. At Tata Communications, I led architecture and data-driven initiatives for global network services.",
+    "Senior Platform Engineer with 7+ years of experience in cloud and network architecture, 4+ years specializing in automation, configuration tooling, hypervisor lifecycle, VM runtime and Kubernetes.",
     "Today, I'm building <strong>Bridgit Social</strong> — a real-time networking app that helps professionals connect in person based on context and goals. I'm also exploring <strong>agentic AI and RAG systems</strong> for recommendations and coaching.",
     "My technical background spans <strong>ML/MLOps, cloud architecture (AWS, GCP), network automation, and data engineering</strong>. I love connecting systems end-to-end, from low-level infrastructure to high-level AI products.",
   ],
 };
+
+// Work Experience data
+const workExperienceData = [
+  {
+    title: "Founder & CTO | Full-Stack Software Developer",
+    company: "Bridgit Group LLC",
+    date: "02/2025 – Present",
+    description: [
+      "Designed and developed an AI-powered, location-based social networking platform, Bridgit Social, from concept to MVP in under 6 months, integrating real-time recommendations with sub-1 second response time and reducing costs by 70%.",
+      "Directed product management, including market research, user interviews, design, prototyping, agile development, and securing a beta user base of 100+ and positioning the platform for pre-seed investments.",
+      "Engineered scalable, cloud-native backend infrastructure and optimized geospatial queries, enabling real-time matchmaking for 1K+ concurrent requests and preparing for horizontal scaling to support 100K+ users.",
+    ],
+  },
+  {
+    title: "Associate Director | Data Scientist & Solutions Architect",
+    company: "Tata Communications",
+    date: "04/2023 – 04/2024",
+    description: [
+      "Built a GenAI-powered support automation platform using LLMs, RAG, and MLOps workflows, reducing operational cost 70% and improving ticket resolution time 90%.",
+      "Implemented CI/CD and automated pipelines for predictive fault detection and closed-loop remediation, minimizing downtime and enabling proactive operations.",
+      "Enabled IZO Multi-Cloud Connect across 6 regions and 25+ data centers, partnered with Red Hat solutions over Red Hat Openstack Platform (RHOSP), delivering a high-availability interconnect with sub-2ms latency and 100% uptime as a scalable foundation for enterprise AI/ML workloads.",
+      "Engineered high-availability Kubernetes cluster over Openstack for an Open Network Automation Platform (ONAP)-based orchestration platform with Ceph storage, Velero backups, and OVN-Kubernetes CNI.",
+      "Integrated and Optimized RHOSP networking with SR-IOV, Calico, and load balancers for low-latency workloads being used for IZO Multi-Cloud Connect supporting high-speed network interfaces in edge vRouters.",
+      "Architected Kubernetes-based Services Platform automating on-demand L2/L3 services, cutting provisioning time, achieving 10× operational efficiency gains, and enabling automation for 1,000+ network services globally.",
+      "Implemented an automated ONAP’s deployment on AWS EKS, by reducing Kubernetes deployment time using Terraform by 50%, enabling consistent Kubernetes environments, resource optimization, automated testing, and scalable infrastructure.",
+      "Established CI/CD pipelines and automated workflows for predictive fault detection, closed-loop remediation, and system optimization, minimizing downtime and enabling proactive network maintenance.",
+    ],
+  },
+  {
+    title: "Senior Cloud & Network Architect",
+    company: "Tata Communications",
+    date: "12/2018 – 04/2023",
+    description: [
+      "Engineered a neural network (LSTM) model to forecast quarterly core network bandwidth needs with 92% training and 90% test accuracy, saving $500K annually through proactive capacity planning.",
+      "Developed a Python-based automation SDK for network testing that reduced test case development time by 80% and standardized testing across 5+ engineering teams.",
+      "Optimized ONAP NaaS platform deployments to meet strict scalability, redundancy, and high-availability requirements, enabling 1-hour failover capabilities and avoiding potential SLA penalties exceeding $1M.",
+      "Accelerated delivery of network automation features by cutting QA turnaround from 2 weeks to 2 days, contributing to a 20% faster time-to-market.",
+      "Delivered cross-functional leadership to a platform support team in providing timely technical assistance and troubleshooting for production issues to 5+ engineering, service delivery, and operation teams.",
+      "Maintained and improved VM runtime workflows.",
+      "Integrated and configured ONAP for Day-2 management (Cluster Logging, Monitoring) with ELK for centralized logging and SRE observability (over Kubernetes) and faster issue resolution using Prometheus, Grafana, and etcd diagnostics.",
+      "Deployed ONAP over Kubernetes on bare-metal with BMC automation and Kickstart for RHEL provisioning.",
+    ],
+  },
+  {
+    title: "Cloud & Network Engineer",
+    company: "Tata Communications",
+    date: "04/2015 – 12/2018",
+    description: [
+      "Implemented OpenStack-based private cloud increasing compute utilization 70% and saving $250K annually.",
+      "Deployed Kubernetes/Docker orchestration and VM consolidation, enabling scalable test and ML research environments.",
+      "Researched Ethernet backbone traffic optimization using Provider Backbone Bridging (PBB), delivering recommendations that improved throughput efficiency by 15%.",
+      "Pioneered system engineering and deployment for a hypervisor-based VM platform on OpenStack, optimizing power and computing utilization by 70% and reducing costs by $250K/Y, while enabling scalable infrastructure to support AI/ML testing workloads.",
+      "Represented the company at MEF, Cloud Native Computing Foundation (CNCF) and Linux Foundation, presenting results from 4+ POCs, influencing vendor and partner strategies, and positioning the company as a leader in open-source cloud and network automation innovation.",
+    ],
+  },
+];
+
+const educationData = [
+  {
+    title: "Ph.D., Electrical Engineering",
+    company: "New Jersey Institute of Technology",
+    date: "",
+    description: "",
+  },
+  {
+    title: "M.S., B.S., Electrical Engineering",
+    company: "Isfahan University of Technology",
+    date: "",
+    description: "",
+  },
+];
 
 // Publications data
 const publicationsData = [
@@ -247,6 +376,7 @@ const contactData = {
   email: "amfooladgar@gmail.com",
   github: "https://github.com/amfooladgar",
   linkedin: "https://www.linkedin.com/in/ali-fouladgar",
+  location: "New York City Metro Area",
 };
 ---
 
@@ -257,6 +387,8 @@ const contactData = {
   <Hero data={heroData} />
   <AboutMe data={aboutMeData} />
   <Projects data={projectsData} />
+  <WorkExperience data={workExperienceData} />
+  <Education data={educationData} />
   <Experience data={experienceData} />
   <Publications data={publicationsData} />
   <Contact data={contactData} />
